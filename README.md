@@ -1,68 +1,158 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### React Notification Component
 
-## Available Scripts
+<img src="https://sun9-67.userapi.com/c851236/v851236724/1c826a/yeqGSy9-bT4.jpg"></img>
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+```
+npm i react-notification-component
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```js
+import { NotifyHandler, NotifyComponent } from 'react-notification-component';
 
-### `npm test`
+function App() {
+  return (
+    <div>
+      <div onClick={() => {
+          NotifyHandler.add()
+        }}>
+      </div>
+      <NotifyComponent />
+    </div>
+  );
+}
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `npm run build`
+#### That's all
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Settings
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### Default arguments for "add" method
+#### Note! If you want to specify a specific argument, then specify not needed in the form of default. 
+#### See more settings examples in the end :)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+NotifyHandler.add(
+  "Title",         // Notification title
+  "Message",       // Message
+  { },             // Settings
+  { },             // Styles
+  () => { },       // Callback on click
+  () => { }        // Callback on time end
+)
+```
+#### Arguments
 
-### `npm run eject`
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Message</th>
+    <th>Settings</th>
+    <th>Styles</th>
+    <th>Callback on click</th>
+    <th>Callback on timeout</th>
+  </tr>
+  <tr>
+    <th>String</th>
+    <th>String</th>
+    <th>Object</th>
+    <th>Object</th>
+    <th>Function</th>
+    <th>Function</th>
+  </tr>
+</table>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Title
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+'Some title for notification'
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Message
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```js
+'Some message for notification'
+```
 
-## Learn More
+#### Settings
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+{
+  time: 2,                     // Time how much notification will be shown; default - 2
+  animationDelay: 0.3,         // Delay for notification animation; default - 0.3
+  animationTimeFunc: 'linear', // Animation func; default - 'linear'
+  position: 'RT',              // Position. Options - 'RT', 'RB', 'LT', 'LB'; default - 'RT'; ('RT' - Right Top, 'LB' - Left Bottom)
+  hide: true,                  // Hide after time (default - 2); default - true
+  progress: true               // Show progress line (timeline); default - true
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Styles
 
-### Code Splitting
+```js
+  {
+    width: 220,                      // Notification width; default - 220
+    height: 54,                      // Notification height; default - 54
+    mainBackground: '#16a085',       // Background color; default - '#16a085'
+    mainBackgroundHover: '#1abc9c',  // Background color on hover; default - '#1abc9c'
+    mainBackgroundHoverTime: 0.2,    // Background hover transition; default - 0.2
+    styleMain: {},                   // React styles for block (border, boxShadow, etc..); default - {}
+    styleTitle: {},                  // Some styles for title; default - {}
+    styleMessage: {},                // Some styles for message; default - {}
+    styleProgress: {}                // Some styles for progress line; default - {}
+  }
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### Callback on click
 
-### Analyzing the Bundle Size
+```js
+  () => { }                          // Callback function, when user click on notification
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### Callback on time end
 
-### Making a Progressive Web App
+```js
+  () => { }                          // Callback function, when time end
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Demo
 
-### Advanced Configuration
+Comming latter
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Examples
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```js
+NotifyHandler.add(
+  'Subscribe', 
+  'You are now a subscriber %username%', 
+  {
+    time: 5,
+    animationDelay: 0.3,
+    animationTimeFunc: 'linear',
+    hide: false,
+    progress: true,
+    position: 'RT'
+   }, 
+   {
+    width: 220,
+    height: 54,
+    mainBackground: '#16a085',
+    mainBackgroundHover: '#1abc9c',
+    mainBackgroundHoverTime: 0.2,
+    styleMain: {},
+    styleTitle: {}, 
+    styleMessage: {}, 
+    styleProgress: { background: '#2ecc71' }
+   },
+   () => {
+    console.log('This is callback!');
+   },
+   () => {
+    console.log('This is callback on time end')
+   }
+)
+```
