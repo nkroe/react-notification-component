@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import NotifyHandler from './NotifyHandler';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { string, number, bool, func } from 'prop-types';
+// import { string, number, bool, func } from 'prop-types';
 
 const Notification__block = styled.div`
     height: auto;
@@ -148,11 +148,11 @@ export default class Notification extends Component {
         const { time, animationDelay, hide, id, callbackAfter } = this.props;
         
         setTimeout(() => {
-            document.getElementById(id).style.opacity = 1;
+            if (document.getElementById(id)) document.getElementById(id).style.opacity = 1;
         }, 100)
 
         setTimeout(() => {
-            document.getElementById(id).children[0].children[1].style.width = 0;
+            if (document.getElementById(id)) document.getElementById(id).children[0].children[1].style.width = 0;
         }, (animationDelay * 1000));
 
         if (hide) {
@@ -221,5 +221,4 @@ Notification.defaultProps = {
     styleTitle: {}, 
     styleMessage: {}, 
     styleProgress: {}
-
 }

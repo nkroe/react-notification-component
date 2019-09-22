@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NotifyHandler from './NotifyHandler';
 import Notification from './Notification'
+
 class TestComp extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +16,7 @@ class TestComp extends Component {
 
     changeCallback = (data) => {
         if ((this.props.maxNotify > 0) && (data.length > this.props.maxNotify)) {
-            NotifyHandler.remove(this.state.comp[0].id);
+            NotifyHandler.remove(data[data.length-1].id);
         } else {
             this.setState({
                 comp: data
@@ -25,7 +26,6 @@ class TestComp extends Component {
             }, 0);
         }
     }
-
 
     render() { 
         return ( 

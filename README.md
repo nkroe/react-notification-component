@@ -119,6 +119,15 @@ NotifyHandler.add(
   () => { }                          // Callback function, when time end
 ```
 
+### Limitations notification on page
+#### Just set prop maxNotify. For an unlimited number of notifications do not specify anything
+
+```js
+<NotifyComponent maxNotify={ 5 } />       // Max 5 notification
+
+<NotifyComponent/>                        // Unlimited number of notification
+```
+
 ### Demo
 
 Coming later
