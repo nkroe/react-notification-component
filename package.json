@@ -1,7 +1,7 @@
 {
   "name": "react-notification-component",
   "description": "ReactJS notification component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "lib/index.js",
   "scripts": {
     "start": "node scripts/start.js",
