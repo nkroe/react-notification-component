@@ -1,6 +1,6 @@
 ### React Notification Component
 
-<img src="https://sun9-67.userapi.com/c851236/v851236724/1c826a/yeqGSy9-bT4.jpg"></img>
+![alt text](https://raw.githubusercontent.com/nkroe/react-notification-component/master/preview.gif "Preview")
 
 ## Installation
 
@@ -121,7 +121,7 @@ NotifyHandler.add(
 
 ### Demo
 
-Comming latter
+Coming later
 
 ### Examples
 
