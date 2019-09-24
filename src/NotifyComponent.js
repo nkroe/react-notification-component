@@ -34,7 +34,7 @@ class TestComp extends Component {
                     this.state.comp.map((w,e) => {
                         let { id, title, message, callback, callbackAfter, funcs, styles } = w;
                         let { time, animationDelay, animationTimeFunc, hide, progress, position } = funcs;
-                        let { width, height, mainBackground, mainBackgroundHover, mainBackgroundHoverTime ,styleMain, styleTitle, styleMessage, styleProgress } = styles;
+                        let { width, height, mainBackground, mainBackgroundHover, mainBackgroundHoverTime, styleBlock, styleMain, styleTitle, styleMessage, styleProgress } = styles;
                         return <Notification 
                                     key={ id } 
                                     id={ id }
@@ -51,6 +51,7 @@ class TestComp extends Component {
                                     mainBackground = { mainBackground }
                                     mainBackgroundHover = { mainBackgroundHover }
                                     mainBackgroundHoverTime = { mainBackgroundHoverTime }
+                                    styleBlock={ styleBlock }
                                     styleMain={ styleMain }
                                     styleTitle={ styleTitle }
                                     styleMessage={ styleMessage }

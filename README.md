@@ -100,7 +100,8 @@ NotifyHandler.add(
     mainBackground: '#16a085',       // Background color; default - '#16a085'
     mainBackgroundHover: '#1abc9c',  // Background color on hover; default - '#1abc9c'
     mainBackgroundHoverTime: 0.2,    // Background hover transition; default - 0.2
-    styleMain: {},                   // React styles for block (border, boxShadow, etc..); default - {}
+    styleBlock: {},                  // React styles for notification block (width, height, boxShadow, etc...); default - {}
+    styleMain: {},                   // Some styles for main (content) (border); default - {}
     styleTitle: {},                  // Some styles for title; default - {}
     styleMessage: {},                // Some styles for message; default - {}
     styleProgress: {}                // Some styles for progress line; default - {}

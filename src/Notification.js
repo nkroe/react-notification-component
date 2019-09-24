@@ -149,7 +149,7 @@ export default class Notification extends Component {
         
         setTimeout(() => {
             if (document.getElementById(id)) document.getElementById(id).style.opacity = 1;
-        }, 100)
+        }, 0)
 
         setTimeout(() => {
             if (document.getElementById(id)) document.getElementById(id).children[0].children[1].style.width = 0;
@@ -171,12 +171,12 @@ export default class Notification extends Component {
     render() {
         let { width, height, mainBackground, time, animationDelay, 
                 animationTimeFunc, progress, mainBackgroundHoverTime, 
-                progressBackground, title, message , position, styleMain, 
+                progressBackground, title, message , position, styleBlock, styleMain, 
                 styleTitle, styleMessage, styleProgress
               } = this.props;
         let pos = this.setPosition(position);
         return ( 
-            <Notification__block className="notification__block" id={this.props.id} data-pos={this.props.position} onClick={() => { this.removeNotify() }} style={ Object.assign({ width: width, minHeight: height, transition: `all ${animationDelay}s ${animationTimeFunc} 0s` }, pos)}>
+            <Notification__block className="notification__block" id={this.props.id} data-pos={this.props.position} onClick={() => { this.removeNotify() }} style={ Object.assign({ width: width, minHeight: height, transition: `all ${animationDelay}s ${animationTimeFunc} 0s` }, pos, styleBlock)}>
                 <Notification__main onMouseOver={_ => { this.hoverMain(1) }} onMouseLeave={_ => { this.hoverMain(2) }} style={ Object.assign({ background: mainBackground, transition: `${mainBackgroundHoverTime}s` }, styleMain)}>
                     <Notification__cont>
                         <Notification__contText>
@@ -217,6 +217,7 @@ Notification.defaultProps = {
 
     title: 'Notification',
     message: 'Some message text :)',
+    styleBlock: {},
     styleMain: {}, 
     styleTitle: {}, 
     styleMessage: {}, 
